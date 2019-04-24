@@ -23,28 +23,20 @@ export default class Header extends Component {
           </div>
           <div className="columns is-mobile">
             <div className="column is-half is-offset-one-quarter">
-              <nav className="level">
-                <p className="level-item has-text-centered">
-                  <a href="#">
-                  HOME
-                  </a>
-                </p>
-                <p className="level-item has-text-centered">
-                  <a href="#">
-                  BLOG
-                  </a>
-                </p>
-                <p className="level-item has-text-centered">
-                  <a href="#">
-                    BOOK
-                  </a>
-                </p>
-                <p className="level-item has-text-centered">
-                  <a href="#">
-                    ABOUT
-                  </a>
-                </p>
-              </nav>
+              <div class="navbar-menu">
+                <div class="navbar">
+                  <Link href="/">
+                    <a class="navbar-item">
+                      HOME
+                    </a>
+                  </Link>
+                  <Link href="/about">
+                    <a class="navbar-item">
+                      ABOUT
+                    </a>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>

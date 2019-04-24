@@ -26,8 +26,8 @@ export default class Post extends Component {
             <div className="field is-grouped is-grouped-multiline">
               { post.tag && post.tag.map(tag => <Tag key={tag._id} name={tag.name} color={tag.color} />)}
             </div>
-            <div>
-              <ReactMarkDown source={post.body} />
+            <div className="p-post">
+              <ReactMarkDown source={post.body} linkTarget={'_blank'} />
             </div>
           </div>
         </div>

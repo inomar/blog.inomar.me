@@ -14,6 +14,10 @@ a {
   }
 }
 
+.navbar-menu {
+  justify-content: center;
+}
+
 .p-wrapper {
   &__header {
     margin: 20px 0 40px;
@@ -40,5 +44,35 @@ a {
   &__hash {
     background-color: $sub-color !important; 
     color: #FFF !important;
+  }
+}
+
+.p-post {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid $third-color;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  ul, ol {
+    padding: 0.2em 1em;
+    list-style-type: disc
+  }
+  
+  li {
+    line-height: 1.5;
+    padding: 0.2em 0.5;
   }
 }

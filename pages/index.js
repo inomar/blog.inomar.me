@@ -6,7 +6,7 @@ import Article from '../components/Article';
 
 export default class Index extends Component {
   static async getInitialProps({ req }) {
-    const res = await fetch('http://localhost:1337/posts');
+    const res = await fetch('http://localhost:1337/posts?published=true');
     const posts = await res.json();
 
     return { posts }
@@ -18,7 +18,7 @@ export default class Index extends Component {
       <Layout>
         <div className="container">
           {
-            posts && posts.map(post => <Article key={post._id} postId={post._id} title={post.title} publishedAt={post.createdAt} slug={post.slug} tags={post.tag} />)
+            posts && posts.map(post => <Article key={post._id} postId={post._id} title={post.title} publishedAt={post.publishedAt} slug={post.slug} tags={post.tag} />)
           }
         </div>
       </Layout>
