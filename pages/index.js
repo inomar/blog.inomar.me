@@ -18,7 +18,7 @@ export default class Index extends Component {
       <Layout>
         <div className="container">
           {
-            posts && posts.map(post => <Article key={post._id} title={post.title} publishedAt={post.createdAt} slug={post.slug} tags={post.tag} />)
+            posts && posts.map(post => <Article key={post._id} postId={post._id} title={post.title} publishedAt={post.createdAt} slug={post.slug} tags={post.tag} />)
           }
         </div>
       </Layout>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Link from 'next/link';
 import { FaTwitter, FaGithub } from "react-icons/fa";
 
 export default class Header extends Component {
@@ -8,7 +9,9 @@ export default class Header extends Component {
         <div className="container">
           <div className="content has-text-centered">
             <p className="title is-5 p-header__title">
-              不定期更新症候群
+              <Link href="/">
+                <a>不定期更新症候群</a>
+              </Link>
             </p>
             <p className="subtitle is-6 p-header__subtitle">
               ~ フルスタックエンジニアを目指して ~
