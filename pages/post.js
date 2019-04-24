@@ -6,11 +6,12 @@ import ReactMarkDown from 'react-markdown';
 import Layout from '../components/Layout';
 import Tag from '../components/Tag';
 import { strDateTo } from '../modules/utility';
+import { ENDPOINT } from '../constants';
 
 export default class Post extends Component {
   static async getInitialProps(context) {
     const { id } = context.query;
-    const res = await fetch(`http://localhost:1337/posts/${id}`);
+    const res = await fetch(`${ENDPOINT}/posts/${id}`);
     const post = await res.json();
 
     return { post }

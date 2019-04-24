@@ -4,9 +4,11 @@ import fetch from 'isomorphic-unfetch';
 import Layout from '../components/Layout';
 import Article from '../components/Article';
 
+import { ENDPOINT } from '../constants';
+
 export default class Index extends Component {
   static async getInitialProps({ req }) {
-    const res = await fetch('http://localhost:1337/posts?published=true');
+    const res = await fetch(`${ENDPOINT}/posts?published=true`);
     const posts = await res.json();
 
     return { posts }
