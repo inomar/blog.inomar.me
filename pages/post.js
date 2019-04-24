@@ -5,6 +5,7 @@ import ReactMarkDown from 'react-markdown';
 
 import Layout from '../components/Layout';
 import Tag from '../components/Tag';
+import { strDateTo } from '../modules/utility';
 
 export default class Post extends Component {
   static async getInitialProps(context) {
@@ -16,13 +17,13 @@ export default class Post extends Component {
   }
   render() {
     const { post } = this.props;
-    console.log(post)
+    const publishedDate = strDateTo(post.publishedAt)
     return(
       <Layout>
         <div className="container">
           <div className="box">
-            <h1 className="title is-3">{post.title}</h1>
-            <p className="subtitle is-7">{post.createdAt}</p>
+            <h1 className="p-post__title title is-3">{post.title}</h1>
+            <p className="p-post__date subtitle is-7">{publishedDate}</p>
             <div className="field is-grouped is-grouped-multiline">
               { post.tag && post.tag.map(tag => <Tag key={tag._id} name={tag.name} color={tag.color} />)}
             </div>

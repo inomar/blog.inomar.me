@@ -16,6 +16,12 @@ a {
 
 .navbar-menu {
   justify-content: center;
+  a {
+    color: $main-color;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
 }
 
 .p-wrapper {
@@ -48,6 +54,12 @@ a {
 }
 
 .p-post {
+  &__title {
+    color: $main-color;
+  }
+  &__date {
+    color: $secondary-color;
+  }
   h1 {
     font-size: 2.5rem;
   }

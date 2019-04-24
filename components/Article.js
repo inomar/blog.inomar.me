@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
-import moment from 'moment';
 
 import Tag from './Tag';
+import { strDateTo } from '../modules/utility';
 
 export default class Article extends Component{
   render() {
     const { title, publishedAt, tags, slug, postId } = this.props;
-    const publishedDate = moment(new Date(publishedAt)).format('YYYY.MM.DD');
+    const publishedDate = strDateTo(publishedAt);
     return (
       <div className="box content">
         <h2 className="title is-6">
