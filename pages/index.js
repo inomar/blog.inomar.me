@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
+import fetch from 'isomorphic-unfetch';
 
 import Layout from '../components/Layout';
 import Article from '../components/Article';
 
 export default class Index extends Component {
+  static async getInitialProps({ req }) {
+    const res = await fetch('http://localhost:1337/posts');
+    const posts = await res.json();
+
+    return { posts }
+  }
   render() {
-    const tags = [{id: 1, name: 'ruby', color: 'red'}, {id: 2, name: 'Rails', color: 'red'}, {id: 3, name: 'React', color: 'blue'}]
-    const articles = [
-      {id: 1, title: 'Rubyを学び直しだ', publishedAt: '2019.04.02', tags: tags},
-      {id: 2, title: 'Next.jsでブログを作る', publishedAt: '2019.04.02', tags: tags},
-      {id: 3, title: 'RailsでAPIモード使う', publishedAt: '2019.04.02', tags: tags},
-      {id: 4, title: 'RailsでAPIモード使う', publishedAt: '2019.04.02', tags: tags},
-    ];
+    const { posts } = this.props;
 
     return (
       <Layout>
         <div className="container">
           {
-            articles && articles.map(article => <Article key={article.id} title={article.title} publishedAt={article.publishedAt} tags={article.tags} />)
+            posts && posts.map(post => <Article key={post._id} title={post.title} publishedAt={post.createdAt} slug={post.slug} tags={post.tag} />)
           }
         </div>
       </Layout>
