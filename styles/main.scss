@@ -79,6 +79,12 @@ a {
   }
 }
 
+.p-page {
+  &__item {
+    padding: 5px 10px;
+  }
+}
+
 .u-pablished {
   color: $secondary-color;
 }
