@@ -1,1 +1,1 @@
-export const ENDPOINT = process.env.ENDPOINT || 'http://localhost:1337';
+export const ENDPOINT = process.env.NODE_ENV === 'production' ? 'https://blog-inomar.herokuapp.com' : 'http://localhost:1337';
