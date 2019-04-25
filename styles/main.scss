@@ -55,6 +55,30 @@ a {
   }
 }
 
+.p-footer {
+  &__profile {
+    align-items: center;
+    &Text {
+      font-size: 0.8rem;
+      margin-left: 20px;
+    }
+    &Name {
+      font-size: 0.9rem;
+      color: $main-color;
+    }
+    &SubTitle {
+      font-size: 0.7rem;
+      color: $secondary-color;
+      margin-bottom: 4px;
+    }
+  }
+  &__copy {
+    margin-top: 10px;
+    color: $secondary-color;
+    font-size: 0.9rem;
+  }
+}
+
 .u-pablished {
   color: $secondary-color;
 }
@@ -65,6 +89,7 @@ a {
     color: #FFF !important;
   }
 }
+
 
 .p-post {
   &__title {

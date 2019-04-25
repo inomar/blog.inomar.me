@@ -23,21 +23,17 @@ export default class Header extends Component {
             <a href={TWITTER_URL} target="_blank" className="p-header__icon"><FaTwitter /></a>
             <a href={GITHUB_URL} target="_blank" className="p-header__icon"><FaGithub /></a>
           </div>
-          <div className="columns">
-            <div className="column is-half is-offset-one-quarter">
-              <div className="is-flex p-header__menu">
-                <Link href="/">
-                  <a className="p-header__menuItem">
-                    HOME
-                  </a>
-                </Link>
-                <Link href="/about">
-                  <a className="p-header__menuItem">
-                    ABOUT
-                  </a>
-                </Link>
-              </div>
-            </div>
+          <div className="is-flex p-header__menu">
+            <Link href="/">
+              <a className="p-header__menuItem">
+                HOME
+              </a>
+            </Link>
+            <Link href="/about">
+              <a className="p-header__menuItem">
+                ABOUT
+              </a>
+            </Link>
           </div>
         </div>
       </header>

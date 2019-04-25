@@ -7,8 +7,8 @@ export default class About extends Component {
   render() {
     return (
       <Layout>
-        <div class="container">
-          <div class="box">
+        <div className="container">
+          <div className="box">
             準備中。。。
           </div>
         </div>
