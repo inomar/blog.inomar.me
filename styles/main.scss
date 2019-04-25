@@ -4,6 +4,7 @@ $third-color: #74A9E8;
 $secondary-color: #7489A4;
 
 $footer-padding: 1rem 1.5rem;
+$subtitle-negative-margin: -0.8rem;
 
 @import '../node_modules/bulma/bulma';
 
@@ -26,7 +27,7 @@ a {
 
 .p-wrapper {
   &__header {
-    margin: 20px 0 40px;
+    margin: 20px 0;
   }
   &__footer {
     margin-top: 40px;
@@ -36,9 +37,21 @@ a {
 .p-header {
   &__title {
     color: $main-color;
+    letter-spacing: 0.5rem;
   }
   &__subtitle {
+    margin-top: 5px;
     color: $secondary-color;
+  }
+  &__icon {
+    font-size: 1.0rem;
+    margin: 0 5px;
+  }
+  &__menu {
+    justify-content: center;
+    &Item {
+      padding: 5px 10px 0px;
+    }
   }
 }
 

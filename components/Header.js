@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import { FaTwitter, FaGithub } from "react-icons/fa";
 
+import { GITHUB_URL, TWITTER_URL } from '../constants';
+
 export default class Header extends Component {
   render() {
     return(
@@ -18,24 +20,22 @@ export default class Header extends Component {
             </p>
           </div>
           <div className="has-text-centered">
-            <a href="" target="_blank"><FaTwitter /></a>
-            <a href="" target="_blank"><FaGithub /></a>
+            <a href={TWITTER_URL} target="_blank" className="p-header__icon"><FaTwitter /></a>
+            <a href={GITHUB_URL} target="_blank" className="p-header__icon"><FaGithub /></a>
           </div>
-          <div className="columns is-mobile">
+          <div className="columns">
             <div className="column is-half is-offset-one-quarter">
-              <div class="navbar-menu">
-                <div class="navbar">
-                  <Link href="/">
-                    <a class="navbar-item">
-                      HOME
-                    </a>
-                  </Link>
-                  <Link href="/about">
-                    <a class="navbar-item">
-                      ABOUT
-                    </a>
-                  </Link>
-                </div>
+              <div className="is-flex p-header__menu">
+                <Link href="/">
+                  <a className="p-header__menuItem">
+                    HOME
+                  </a>
+                </Link>
+                <Link href="/about">
+                  <a className="p-header__menuItem">
+                    ABOUT
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
