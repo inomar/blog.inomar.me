@@ -7,7 +7,8 @@ export default class Paginateion extends Component {
     const { count, page, limit } = this.props;
     return (
       <div className="has-text-centered">
-        { page && page > 1 ? (
+        { 
+          page && page > 1 ? (
             <Link as={`/?page=${page - 1}`} href={`/posts?page=${page - 1}`}>
               <a className="p-page__item">Prev</a>
             </Link>
