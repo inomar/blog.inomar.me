@@ -657,6 +657,12 @@
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.3.tgz#6310a047f12d21a1036fb031317219892440416f"
 
+"@microlink/react@^4.0.0-alpha.0":
+  version "4.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@microlink/react/-/react-4.0.0-alpha.0.tgz#912a5ce5da339cedb9815312f978784d855f5c01"
+  dependencies:
+    nanoclamp "~1.2.9"
+
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.7.11.tgz#b988582cafbb2b095e8b556526f30c90d057cace"
@@ -3346,6 +3352,10 @@ ms@^2.1.1:
 nan@^2.10.0, nan@^2.9.2:
   version "2.13.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.13.2.tgz#f51dc7ae66ba7d5d55e1e6d4d8092e802c9aefe7"
+
+nanoclamp@~1.2.9:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/nanoclamp/-/nanoclamp-1.2.9.tgz#ba16ea4d2061ad7873f85652c80b1d8905fc54fd"
 
 nanoid@1.2.1:
   version "1.2.1"
