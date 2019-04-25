@@ -22,18 +22,20 @@ export default class Post extends Component {
     const publishedDate = strDateTo(post.publishedAt)
     return(
       <Layout>
-        <div className="container">
-          <div className="box">
-            <h1 className="p-post__title title is-3">{post.title}</h1>
-            <p className="p-post__date subtitle is-7">{publishedDate}</p>
-            <div className="field is-grouped is-grouped-multiline">
-              { post.tag && post.tag.map(tag => <Tag key={tag._id} name={tag.name} color={tag.color} />)}
-            </div>
-            <div className="p-post">
-              <ReactMarkDown source={post.body} renderers={{ code: CodeBlock }} linkTarget={'_blank'} />
+        <section className="section">
+          <div className="container">
+            <div className="box">
+              <h1 className="p-post__title title is-3">{post.title}</h1>
+              <p className="p-post__date subtitle is-7">{publishedDate}</p>
+              <div className="field is-grouped is-grouped-multiline">
+                { post.tag && post.tag.map(tag => <Tag key={tag._id} name={tag.name} color={tag.color} />)}
+              </div>
+              <div className="p-post">
+                <ReactMarkDown source={post.body} renderers={{ code: CodeBlock }} linkTarget={'_blank'} />
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </Layout>
     )
   }

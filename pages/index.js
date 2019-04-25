@@ -22,12 +22,15 @@ export default class Index extends Component {
     const { posts, page, count } = this.props;
     return (
       <Layout>
-        <div className="container">
+        <section className="section">
+          <div className="container">
           {
             posts && posts.map(post => <Article key={post._id} postId={post._id} title={post.title} publishedAt={post.publishedAt} slug={post.slug} tags={post.tag} />)
           }
           <Pagenation count={count} page={parseInt(page)} limit={10} />
-        </div>
+          </div>
+        </section>
+
       </Layout>
     )
   }

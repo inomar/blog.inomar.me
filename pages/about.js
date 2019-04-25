@@ -7,11 +7,13 @@ export default class About extends Component {
   render() {
     return (
       <Layout>
-        <div className="container">
-          <div className="box">
-            準備中。。。
+        <section className="section">
+          <div className="container">
+            <div className="box">
+              準備中。。。
+            </div>
           </div>
-        </div>
+        </section>
       </Layout>
     )
   }
