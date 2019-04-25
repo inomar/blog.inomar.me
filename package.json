@@ -17,6 +17,7 @@
     "react-dom": "^16.8.6",
     "react-icons": "^3.6.1",
     "react-markdown": "^4.0.8",
+    "react-syntax-highlighter": "^10.2.1",
     "styled-components": "^4.2.0"
   },
   "scripts": {

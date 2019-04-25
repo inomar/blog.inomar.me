@@ -5,6 +5,7 @@ import ReactMarkDown from 'react-markdown';
 
 import Layout from '../components/Layout';
 import Tag from '../components/Tag';
+import CodeBlock from '../components/CodeBlock';
 import { strDateTo } from '../modules/utility';
 import { ENDPOINT } from '../constants';
 
@@ -29,7 +30,7 @@ export default class Post extends Component {
               { post.tag && post.tag.map(tag => <Tag key={tag._id} name={tag.name} color={tag.color} />)}
             </div>
             <div className="p-post">
-              <ReactMarkDown source={post.body} linkTarget={'_blank'} />
+              <ReactMarkDown source={post.body} renderers={{ code: CodeBlock }} linkTarget={'_blank'} />
             </div>
           </div>
         </div>
