@@ -5,6 +5,8 @@ import '../styles/main.scss';
 import Header from './Header';
 import Footer from './Footer';
 
+import ogp from '../modules/ogp';
+
 export default class Layout extends Component {
   render() {
     const { children } = this.props;
@@ -17,17 +19,7 @@ export default class Layout extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
           <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico"></link>
           <meta name="description" content="不定期更新のwebエンジニアいのまーのブログです。フルスタックエンジニアを目指して日々奮闘しております。" />
-{/* 
-          <meta property="og:url" content="ページのURL" />
-          <meta property="og:title" content="ページのタイトル" />
-          <meta property="og:type" content="ページのタイプ">
-          <meta property="og:description" content="記事の抜粋" />
-          <meta property="og:image" content="画像のURL" />
-          <meta name="twitter:card" content="カード種類" />
-          <meta name="twitter:site" content="@Twitterユーザー名" />
-          <meta property="og:site_name" content="サイト名" />
-          <meta property="og:locale" content="ja_JP" />
-          <meta property="fb:app_id" content="appIDを入力" /> */}
+          <ogp />
         </Head>
         <Header />
         { children }

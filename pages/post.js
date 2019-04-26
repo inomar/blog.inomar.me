@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
+import Head from 'next/head'
 import fetch from 'isomorphic-unfetch';
 import ReactMarkDown from 'react-markdown';
 
@@ -23,6 +23,10 @@ export default class Post extends Component {
     const publishedDate = strDateTo(post.publishedAt)
     return(
       <Layout>
+        <Head>
+          <title>{post.title} - 不定期更新症候群 ~ フルスタックエンジニアを目指して ~ </title>
+          <meta name="description" content={post.body.slice(0, 30)} />
+        </Head>
         <section className="section">
           <div className="container">
             <div className="box">
