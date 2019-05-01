@@ -29,7 +29,7 @@ export default class Post extends Component {
         </Head>
         <section className="section">
           <div className="container">
-            <div className="box">
+            <div className="box p-post">
               <h1 className="p-post__title title is-3">{post.title}</h1>
               <p className="p-post__date subtitle is-7">{publishedDate}</p>
               <div className="field is-grouped is-grouped-multiline">
@@ -38,6 +38,7 @@ export default class Post extends Component {
               <div className="p-post">
                 <ReactMarkDown
                   source={post.body}
+                  escapeHtml={false}
                   renderers={{ code: CodeBlock, link: LinkCard }}
                   linkTarget={'_blank'}
                 />

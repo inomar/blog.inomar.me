@@ -14,7 +14,7 @@ export default class Layout extends Component {
       <div>
         <Head>
           <title>不定期更新症候群 ~ フルスタックエンジニアを目指して ~ </title>
-          <meta charset="utf-8" />
+          <meta charSet="utf-8" />
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
           <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico"></link>

@@ -9,10 +9,10 @@ export default class Article extends Component{
     const { title, publishedAt, tags, slug, postId } = this.props;
     const publishedDate = strDateTo(publishedAt);
     return (
-      <div className="box content">
+      <div className="box content p-box">
         <h2 className="title is-6">
           <Link as={`/post/${postId}`} href={`/post?id=${postId}`} >
-            <a>{title}</a>
+            <a className="p-boxTitle">{title}</a>
           </Link>
         </h2>
         <p className="subtitle is-7 u-pablished">{publishedDate}</p>
