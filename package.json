@@ -2,7 +2,6 @@
   "name": "blog-inomar-nextjs",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
   "dependencies": {
     "@microlink/react": "^4.0.0-alpha.0",
     "@zeit/next-css": "^1.0.1",
@@ -29,9 +28,12 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "now-build": "next build"
+    "now-build": "next build",
+    "now-deploy": "now --target production"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.0"
-  }
+  },
+  "license": "UNLICENSED",
+  "private": true
 }
