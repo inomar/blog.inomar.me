@@ -73,7 +73,7 @@ export default class Post extends Component {
               </div>
             </div>
             <div className="p-comment">
-              <DiscussionEmbed shortname="不定期更新症候群" config={disqusConfig} />
+              <DiscussionEmbed shortname="blog.inomar.me" config={disqusConfig} />
             </div>
           </div>
         </section>
