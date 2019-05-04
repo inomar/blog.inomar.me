@@ -4,12 +4,11 @@ import fetch from 'isomorphic-unfetch';
 import ReactMarkDown from 'react-markdown';
 import {
   FacebookShareButton,
-  GooglePlusShareButton,
   TwitterShareButton,
   FacebookIcon,
   TwitterIcon,
-  GooglePlusIcon,
 } from 'react-share';
+import { DiscussionEmbed } from 'disqus-react';
 
 import Layout from '../components/Layout';
 import Tag from '../components/Tag';
@@ -30,6 +29,11 @@ export default class Post extends Component {
     const publishedDate = strDateTo(post.publishedAt)
     const shareUrl = `https://blog.inomar.me/post/${post._id}`;
     const title = `${post.title} - 不定期更新症候群~フルスタックエンジニアを目指して~`;
+    const disqusConfig = {
+      url: shareUrl,
+      identifier: post._id,
+      title: post.title,
+    };
     return(
       <Layout>
         <Head>
@@ -67,6 +71,9 @@ export default class Post extends Component {
                   </TwitterShareButton>
                 </div>
               </div>
+            </div>
+            <div className="p-comment">
+              <DiscussionEmbed shortname="不定期更新症候群" config={disqusConfig} />
             </div>
           </div>
         </section>
