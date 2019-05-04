@@ -99,6 +99,16 @@ a {
   }
 }
 
+.p-share {
+  &Title {
+    color: $secondary-color;
+  }
+  &Button {
+    margin: 4px;
+    cursor: pointer;
+  }
+}
+
 .u-pablished {
   color: $secondary-color;
 }
