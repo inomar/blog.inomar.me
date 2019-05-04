@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import Head from 'next/head'
 import fetch from 'isomorphic-unfetch';
 import ReactMarkDown from 'react-markdown';
+import {
+  FacebookShareButton,
+  GooglePlusShareButton,
+  TwitterShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  GooglePlusIcon,
+} from 'react-share';
 
 import Layout from '../components/Layout';
 import Tag from '../components/Tag';
@@ -15,16 +23,17 @@ export default class Post extends Component {
     const { id } = context.query;
     const res = await fetch(`${ENDPOINT}/posts/${id}`);
     const post = await res.json();
-
     return { post }
   }
   render() {
     const { post } = this.props;
     const publishedDate = strDateTo(post.publishedAt)
+    const shareUrl = `https://blog.inomar.me/post/${post._id}`;
+    const title = `${post.title} - 不定期更新症候群~フルスタックエンジニアを目指して~`;
     return(
       <Layout>
         <Head>
-          <title>{post.title} - 不定期更新症候群 ~ フルスタックエンジニアを目指して ~ </title>
+          <title>{title}</title>
           <meta name="description" content={post.body.slice(0, 30)} />
         </Head>
         <section className="section">
@@ -42,6 +51,21 @@ export default class Post extends Component {
                   renderers={{ code: CodeBlock, link: LinkCard }}
                   linkTarget={'_blank'}
                 />
+              </div>
+            </div>
+            <div className="p-share">
+              <h4 className="p-shareTitle">share</h4>
+              <div className="buttons">
+                <div className="p-shareButton">
+                  <FacebookShareButton url={shareUrl} quote={title} >
+                    <FacebookIcon size={32} round/>
+                  </FacebookShareButton>
+                </div>
+                <div className="p-shareButton">
+                  <TwitterShareButton url={shareUrl} title={title} >
+                    <TwitterIcon size={32} round />
+                  </TwitterShareButton>
+                </div>
               </div>
             </div>
           </div>

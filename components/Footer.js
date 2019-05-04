@@ -21,7 +21,7 @@ export default class Footer extends Component {
                   </div>
                 </div>
                 <div className="content has-text-centered">
-                  <p className="p-footer__copy">2017 &copy;不定期更新症候群</p>
+                  <p className="p-footer__copy">2017 &copy;不定期更新症候群 / Produced by inomar</p>
                 </div>
               </div>
             </div>
