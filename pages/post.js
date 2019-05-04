@@ -30,7 +30,6 @@ export default class Post extends Component {
     const shareUrl = `https://blog.inomar.me/post/${post._id}`;
     const title = `${post.title} - 不定期更新症候群~フルスタックエンジニアを目指して~`;
     const disqusConfig = {
-      url: shareUrl,
       identifier: post._id,
       title: post.title,
     };
