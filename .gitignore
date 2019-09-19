@@ -89,3 +89,14 @@ typings/
 .dynamodb/
 
 # End of https://www.gitignore.io/api/node
+
+# wordpress initial theme
+twentynineteen
+twentyseventeen
+twentysixteen
+
+# wordpress initial plugin
+
+db
+config/.ssh
+config/wordmove
