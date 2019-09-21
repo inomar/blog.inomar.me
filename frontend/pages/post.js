@@ -19,12 +19,12 @@ import { strDateTo } from '../modules/utility';
 import { ENDPOINT } from '../constants';
 
 export default class Post extends Component {
-  static async getInitialProps(context) {
-    const { id } = context.query;
-    const res = await fetch(`${ENDPOINT}/posts/${id}`);
-    const post = await res.json();
-    return { post }
-  }
+  // static async getInitialProps(context) {
+  //   const { id } = context.query;
+  //   const res = await fetch(`${ENDPOINT}/posts/${id}`);
+  //   const post = await res.json();
+  //   return { post }
+  // }
   render() {
     const { post } = this.props;
     const publishedDate = strDateTo(post.publishedAt)

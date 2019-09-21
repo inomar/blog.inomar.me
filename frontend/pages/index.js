@@ -4,29 +4,29 @@ import fetch from 'isomorphic-unfetch';
 import Layout from '../components/Layout';
 import Article from '../components/Article';
 import Pagenation from '../components/Pagination';
+import Api from '../lib/api';
+import { postFormatter, categoryFormatter } from '../lib/formatter';
 
-import { ENDPOINT } from '../constants';
+// import { ENDPOINT } from '../constants';
 
 export default class Index extends Component {
-  // static async getInitialProps({ req }) {
-  //   let page = req && req.query ? req.query.page : 0;
-  //   page = parseInt(page) > 1 ? parseInt(page) : 1;
-  //   const resCount = await fetch(`${ENDPOINT}/posts/count?published=true`);
-  //   const res = await fetch(`${ENDPOINT}/posts?_sort=publishedAt:DESC&_limit=10&_start=${(page-1)*10}&published=true`);
-  //   const posts = await res.json();
-  //   const count = await resCount.json();
-  //   return { posts, page, count }
-  // }
+  static async getInitialProps({ req }) {
+    const api = new Api();
+    let posts = await api.getPosts();
+    let categories = await api.getCategories();
+    posts = posts.map(post => postFormatter(post));
+    categories = categories.map(category => categoryFormatter(category));
+    return { posts, categories };
+  }
 
   render() {
-    const { posts, page, count } = this.props;
+    const { posts, categories } = this.props;
     return (
       <Layout>
         <section className="section">
           <div className="container">
-          <p>準備中。。。</p>
           {
-            // posts && posts.map(post => <Article key={post._id} postId={post._id} title={post.title} publishedAt={post.publishedAt} slug={post.slug} tags={post.tag} />)
+            posts && posts.map(post => <Article post={post} categories={categories} />)
           }
           
           </div>
@@ -36,3 +36,20 @@ export default class Index extends Component {
     )
   }
 }
+
+const samplePosts = [
+  {
+    title: 'hoge',
+    id: 1,
+    slug: 'hogehoge',
+    tag: [{_id: 1, name: 'react'}, {_id: 2, name: 'rest'}],
+    publishedAt: '2019-09-20 00:00:00'
+  },
+  {
+    title: 'hoge',
+    id: 2,
+    slug: 'hogehoge',
+    tag: [{_id: 1, name: 'react'}, {_id: 2, name: 'rest'}],
+    publishedAt: '2019-09-20 00:00:00'
+  }
+]
