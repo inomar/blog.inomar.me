@@ -7,6 +7,10 @@ class Api {
     this.wp = new WPAPI({ endpoint: `${endpoint}/wp-json` });
   }
 
+  getPost(id) {
+    return this.wp.posts().id(id);
+  }
+
   getPosts(per = 10, page = 1) {
     return this.wp.posts().perPage(per).page(page);
   }
