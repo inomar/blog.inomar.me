@@ -5,13 +5,13 @@ import Tag from './Tag';
 
 export default class Article extends Component{
   render() {
-    const { title, publishedAt, categories, slug, id } = this.props.post;
+    const { title, publishedAt, categories, publishedYear, publishedMonth, id } = this.props.post;
     const allCategories = this.props.categories;
     const tags = categories.map(category_id => allCategories.find(item => item.id == category_id));
     return (
       <div className="box content p-box">
         <h2 className="title is-6">
-          <Link as={`/post/${id}`} href={`/post/${id}`} >
+          <Link as={`/posts/${publishedYear}/${publishedMonth}`} href={`/post?id=${id}`} >
             <a className="p-boxTitle">{title}</a>
           </Link>
         </h2>

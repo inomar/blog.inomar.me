@@ -8,6 +8,9 @@ export const postFormatter = (post) => (
     content: post.content.rendered,
     slug: post.slug,
     publishedAt: strDateTo(post.date),
+    publishedDate: new Date(post.date).getDate(),
+    publishedMonth: new Date(post.date).getMonth(),
+    publishedYear: new Date(post.date).getFullYear(),
     modifiedAt: strDateTo(post.modified),
   }
 );

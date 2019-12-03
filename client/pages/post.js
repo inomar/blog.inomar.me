@@ -21,9 +21,9 @@ import { ENDPOINT } from '../constants';
 import { postFormatter } from '../lib/formatter';
 
 export default class Post extends Component {
-  static async getInitialProps({ req }) {
+  static async getInitialProps({ query }) {
     const api = new Api();
-    let post = await api.getPost(req.params.id);
+    let post = await api.getPost(query.id);
     post = postFormatter(post);
     return { post }
   }

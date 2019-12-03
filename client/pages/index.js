@@ -17,6 +17,8 @@ export default class Index extends Component {
     if (0 !== Object.keys(categories).length) {
       categories = categories.map(category => categoryFormatter(category));
     }
+
+    console.log(posts)
     return { posts, categories };
   }
 
