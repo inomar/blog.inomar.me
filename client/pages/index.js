@@ -11,8 +11,12 @@ export default class Index extends Component {
     const api = new Api();
     let posts = await api.getPosts();
     let categories = await api.getCategories();
-    posts = posts.map(post => postFormatter(post));
-    categories = categories.map(category => categoryFormatter(category));
+    if (0 !== Object.keys(posts).length) {
+      posts = posts.map(post => postFormatter(post));
+    }
+    if (0 !== Object.keys(categories).length) {
+      categories = categories.map(category => categoryFormatter(category));
+    }
     return { posts, categories };
   }
 
@@ -23,7 +27,7 @@ export default class Index extends Component {
         <section className="section">
           <div className="container">
           {
-            posts && posts.map(post => <Article key={post.slug} post={post} categories={categories} />)
+            posts.length > 0 && posts.map(post => <Article key={post.slug} post={post} categories={categories} />)
           }
           </div>
         </section>

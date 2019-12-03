@@ -28,8 +28,8 @@ services:
       MYSQL_USER: wp_user
       MYSQL_PASSWORD: database_password
     volumes:
-      - ./db/data:/var/lib/mysql
-      - ./db/data:/docker-entrypoint-initdb.d
+      - db-data:/var/lib/mysql
+      - ./db/initial-data.sql:/docker-entrypoint-initdb.d
 
   client:
     build: client
@@ -44,4 +44,5 @@ services:
       WP_URL: "http://wp-api:80"
     command: 'yarn dev'
 volumes:
+  db-data:
   ? yarn-cache
