@@ -10,22 +10,25 @@ import {
 } from 'react-share';
 import { DiscussionEmbed } from 'disqus-react';
 
+import Api from '../lib/api';
 import Layout from '../components/Layout';
 import Tag from '../components/Tag';
 import CodeBlock from '../components/CodeBlock';
 import LinkCard from '../components/LinkCard';
 import { strDateTo } from '../modules/utility';
 import { ENDPOINT } from '../constants';
+import { postFormatter } from '../lib/formatter';
 
 export default class Post extends Component {
-  static async getInitialProps(context) {
-    const { id } = context.query;
-    const res = await fetch(`${ENDPOINT}/posts/${id}`);
-    const post = await res.json();
+  static async getInitialProps({ query }) {
+    const api = new Api();
+    let post = await api.getPost(query.id);
+    post = postFormatter(post);
     return { post }
   }
   render() {
     const { post } = this.props;
+    console.log(post)
     const publishedDate = strDateTo(post.publishedAt)
     const shareUrl = `https://blog.inomar.me/post/${post._id}`;
     const title = `${post.title} - 不定期更新症候群~フルスタックエンジニアを目指して~`;
@@ -38,7 +41,7 @@ export default class Post extends Component {
       <Layout>
         <Head>
           <title>{title}</title>
-          <meta name="description" content={post.body.slice(0, 30)} />
+          <meta name="description" content={post.content.slice(0, 30)} />
         </Head>
         <section className="section">
           <div className="container">
@@ -50,7 +53,7 @@ export default class Post extends Component {
               </div>
               <div className="p-post">
                 <ReactMarkDown
-                  source={post.body}
+                  source={post.content}
                   escapeHtml={false}
                   renderers={{ code: CodeBlock, link: LinkCard }}
                   linkTarget={'_blank'}

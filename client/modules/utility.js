@@ -1,5 +1,5 @@
 import moment from 'moment';
 
-export function strDateTo(date) {
+export const strDateTo = (date => {
   return moment(new Date(date)).format('YYYY.MM.DD');
-}
+});
