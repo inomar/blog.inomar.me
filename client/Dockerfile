@@ -11,6 +11,6 @@ RUN set -ex; \
 
 COPY . /myapp/client
 
-EXPOSE 8080
+EXPOSE 80
 # ENTRYPOINT [ "/bin/bash" ]
 # CMD "-c \"if [ ! -d \"node_modules\" ]; then yarn; fi; yarn dev\""
