@@ -2,9 +2,9 @@ setup:
   addons:
     - plan: jawsdb
       as: DATABASE
-  build:
-    docker:
-      client: client/Dockerfile
-      wordpress: wordpress/Dockerfile
-  run:
-    client: node server.js
+build:
+  docker:
+    client: client/Dockerfile
+    wordpress: wordpress/Dockerfile
+run:
+  client: node server.js
