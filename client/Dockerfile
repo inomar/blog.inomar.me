@@ -11,6 +11,8 @@ RUN set -ex; \
 
 COPY . /myapp/client
 
+RUN yarn build
+
 EXPOSE 80
 # ENTRYPOINT [ "/bin/bash" ]
 # CMD "-c \"if [ ! -d \"node_modules\" ]; then yarn; fi; yarn dev\""
