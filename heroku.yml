@@ -7,4 +7,4 @@ build:
     client: client/Dockerfile
     wordpress: wordpress/Dockerfile
 run:
-  client: yarn start
+  client: NODE_ENV=production node server.js $PORT
