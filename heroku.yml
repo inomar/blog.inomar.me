@@ -7,4 +7,4 @@ build:
     client: client/Dockerfile
     wordpress: wordpress/Dockerfile
 run:
-  client: node server.js
+  client: yarn start

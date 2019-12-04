@@ -31,7 +31,7 @@
   "scripts": {
     "dev": "nodemon server.js --config nodemon.json",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "NODE_ENV=production node server.js $PORT",
     "now-build": "next build",
     "now-deploy": "now --name blog-inomar-nextjs --target production"
   },
