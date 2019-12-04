@@ -8,12 +8,11 @@ const handle = app.getRequestHandler()
 
 app.prepare()
 .then(() => {
-  const server = express()
+  const server = express();
 
-  server.get('/posts/:year/:month', (req, res) => {
-    console.log(req.params, req)
+  server.get('/posts/:id', (req, res) => {
     const actualPage = '/post';
-    const queryParams = { id: 1 };
+    const queryParams = { id: req.params.id };
     app.render(req, res, actualPage, queryParams);
   })
 

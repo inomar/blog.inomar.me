@@ -1,18 +1,31 @@
 import WPAPI from 'wpapi';
+import axios from 'axios';
 
 class Api {
   constructor() {
-    const isProduction = process.env.NODE_ENV === 'production';
-    const endpoint = isProduction ? process.env.WP_URL : `http://wp-api:80`;
-    this.wp = new WPAPI({ endpoint: `${endpoint}/wp-json` });
+    this.baseEndpoint = 'https://blog-inomar-me.cdn.prismic.io/api/v2';
+    this.accessToken = 'MC5YZWRqU3hFQUFDc1lTclBF.Me-_vQQr77-9e--_vWQV77-977-9C3bvv73vv73vv73vv73vv73vv71A77-9GVbvv70r77-9Ru-_vUZE77-9Jw';
   }
 
-  getPost(id) {
-    return this.wp.posts().id(id);
+  async getRef() {
+    const response = await axios.get(this.baseEndpoint);
+    if (response.status === 200) {
+      const refs = response.data.refs;
+      const refObj = refs.find(ref => ref.id === 'master');
+      this.ref = refObj.ref;
+      this.apiEndpoint = `${this.baseEndpoint}/documents/search?ref=${this.ref}&access_token=${this.accessToken}`;
+    }
   }
 
-  getPosts(per = 10, page = 1) {
-    return this.wp.posts().perPage(per).page(page);
+
+  async getPost(id) {
+    await this.getRef();
+    return await axios.get(`${this.apiEndpoint}&q=[[at(document.id,"${id}")]]`);
+  }
+
+  async getPosts(per = 10, page = 1) {
+    await this.getRef();
+    return await axios.get(`${this.apiEndpoint}&page=${page}`);
   }
 
   getCategories() {

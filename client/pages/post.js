@@ -22,15 +22,16 @@ import { postFormatter } from '../lib/formatter';
 export default class Post extends Component {
   static async getInitialProps({ query }) {
     const api = new Api();
-    let post = await api.getPost(query.id);
-    post = postFormatter(post);
-    return { post }
+    const response = await api.getPost(query.id);
+    if (response.status === 200) {
+      const post = postFormatter(response.data.results[0]);
+      return { post }
+    }
   }
   render() {
     const { post } = this.props;
-    console.log(post)
     const publishedDate = strDateTo(post.publishedAt)
-    const shareUrl = `https://blog.inomar.me/post/${post._id}`;
+    const shareUrl = `https://blog.inomar.me/posts/${post._id}`;
     const title = `${post.title} - 不定期更新症候群~フルスタックエンジニアを目指して~`;
     const disqusConfig = {
       url: shareUrl,
@@ -41,7 +42,7 @@ export default class Post extends Component {
       <Layout>
         <Head>
           <title>{title}</title>
-          <meta name="description" content={post.content.slice(0, 30)} />
+          <meta name="description" content={post.contents[0].text} />
         </Head>
         <section className="section">
           <div className="container">
