@@ -13,6 +13,6 @@ COPY . /myapp/client
 
 RUN yarn build
 
-EXPOSE 80
+EXPOSE 8080
 # ENTRYPOINT [ "/bin/bash" ]
 # CMD "-c \"if [ ! -d \"node_modules\" ]; then yarn; fi; yarn dev\""
