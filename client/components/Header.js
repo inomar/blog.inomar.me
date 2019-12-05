@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import { FaTwitter, FaGithub } from "react-icons/fa";
+import { linkResolver, hrefResolver } from '../lib/prismic-configuration';
 
 import { GITHUB_URL, TWITTER_URL } from '../constants';
 
@@ -29,7 +30,7 @@ export default class Header extends Component {
                 HOME
               </a>
             </Link>
-            <Link href="/about">
+            <Link as={linkResolver({type: 'profile'})} href={hrefResolver({type: 'profile'})}>
               <a className="p-header__menuItem">
                 ABOUT
               </a>
