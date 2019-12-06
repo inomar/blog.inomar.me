@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import Prismic from 'prismic-javascript';
 import { RichText } from 'prismic-reactjs';
 import { apiEndpoint, accessToken } from '../lib/prismic-configuration';
+import HtmlSerializer from '../lib/htmlSerializer';
 
 export default class About extends Component {
   static async getInitialProps({ req }) {
@@ -18,12 +19,13 @@ export default class About extends Component {
 
   render() {
     const { doc } = this.props;
+    console.log(doc.data.about)
     return (
       <Layout>
         <section className="section">
           <div className="container">
             <div className="box">
-              { RichText.asText(doc.data.about) }
+              { HtmlSerializer(doc.data.about)}
             </div>
           </div>
         </section>
