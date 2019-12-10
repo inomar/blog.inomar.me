@@ -1,47 +1,13 @@
 version: "3.7"
 
 services:
-  wp-api:
-    build: wordpress
-    container_name: "${PRODUCTION_NAME}_wordpress"
-    ports:
-      - 9000:80
-    depends_on:
-      - db
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_NAME: wordpress
-      WORDPRESS_DB_USER: wp_user
-      WORDPRESS_DB_PASSWORD: database_password
-
-  db:
-    image: mysql:5.7
-    container_name: "${PRODUCTION_NAME}_db"
-    ports:
-      - 4306:3306
-    restart: always
-    env_file: 
-      - .env
-    environment:
-      MYSQL_ROOT_PASSWORD: database_password
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wp_user
-      MYSQL_PASSWORD: database_password
-    volumes:
-      - db-data:/var/lib/mysql
-      - ./db/initial-data.sql:/docker-entrypoint-initdb.d
-
   client:
-    build: client
+    build: .
     ports:
       - "${CLIENT_PORT}:3000"
-    depends_on:
-      - wp-api
     volumes:
-      - ./client:/myapp/client
+      - .:/myapp/client
       - yarn-cache:/usr/local/share/.cache/yarn/v4
-    environment:
-      WP_URL: "http://wp-api:80"
     env_file: .env
     command: 'yarn dev'
 volumes:
