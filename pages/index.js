@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import Prismic from 'prismic-javascript';
 
-import Layout from '../components/Layout';
-import Article from '../components/Article';
+import Article from '../components/molecules/Article';
 import Pagenation from '../components/Pagination';
-import Api from '../lib/api';
-import { postFormatter, categoryFormatter } from '../lib/formatter';
-import { apiEndpoint, accessToken } from '../lib/prismic-configuration';
+import { postFormatter } from '../lib/formatter';
 import Client from '../lib/prismicHelpers';
+import Layout from '../components/layouts/Layout'
 
 export default class Index extends Component {
   static async getInitialProps({ req }) {
@@ -21,7 +19,7 @@ export default class Index extends Component {
   render() {
     const { posts } = this.props;
     return (
-      <Layout>
+      <Layout title="">
         <section className="section">
           <div className="container">
           {

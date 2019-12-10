@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Head from 'next/head'
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -8,8 +7,8 @@ import {
 } from 'react-share';
 import { DiscussionEmbed } from 'disqus-react';
 
-import Layout from '../../components/Layout';
-import Tag from '../../components/Tag';
+import Layout from '../../components/layouts/Layout';
+import Tag from '../../components/atoms/Tag';
 import { postFormatter } from '../../lib/formatter';
 import Client from '../../lib/prismicHelpers';
 import HtmlSerializer from '../../lib/htmlSerializer';
@@ -34,10 +33,6 @@ export default class Post extends Component {
     };
     return(
       <Layout>
-        <Head>
-          <title>{headTitle}</title>
-          <meta name="description" content={post.contents[0].text} />
-        </Head>
         <section className="section">
           <div className="container">
             <div className="box p-post">

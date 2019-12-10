@@ -4,10 +4,10 @@ import { atomDark } from "react-syntax-highlighter/dist/styles/prism";
 
 export default class CodeBlock extends Component {
   render() {
-    const { language, value } = this.props;
+    const { language, text } = this.props;
     return (
-      <SyntaxHighlighter language={language} style={atomDark}>
-        {value}
+      <SyntaxHighlighter language={language} style={atomDark} showLineNumbers>
+        {text}
       </SyntaxHighlighter>
     )
   }

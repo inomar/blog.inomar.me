@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Layout from '../components/Layout';
+import Layout from '../components/layouts/Layout';
 import Prismic from 'prismic-javascript';
 import { RichText } from 'prismic-reactjs';
 import { apiEndpoint, accessToken } from '../lib/prismic-configuration';
@@ -20,7 +20,7 @@ export default class About extends Component {
   render() {
     const { doc } = this.props;
     return (
-      <Layout>
+      <Layout title={'about'}>
         <section className="section">
           <div className="container">
             <div className="box">

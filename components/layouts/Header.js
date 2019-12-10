@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
 import { FaTwitter, FaGithub } from "react-icons/fa";
-import { linkResolver, hrefResolver } from '../lib/prismic-configuration';
+import HyperLink from '../atoms/HyperLink';
+import { SITE_TITLE } from '../../constants';
 
-import { GITHUB_URL, TWITTER_URL } from '../constants';
+import { GITHUB_URL, TWITTER_URL } from '../../constants';
 
 export default class Header extends Component {
   render() {
@@ -12,12 +12,12 @@ export default class Header extends Component {
         <div className="container">
           <div className="content has-text-centered">
             <p className="title is-5 p-header__title">
-              <Link href="/">
-                <a>不定期更新症候群</a>
-              </Link>
+              <HyperLink>
+                <a>{SITE_TITLE.MAIN}</a>
+              </HyperLink>
             </p>
             <p className="subtitle is-6 p-header__subtitle">
-              ~ フルスタックエンジニアを目指して ~
+              {SITE_TITLE.SUB}
             </p>
           </div>
           <div className="has-text-centered">
@@ -25,16 +25,16 @@ export default class Header extends Component {
             <a href={GITHUB_URL} target="_blank" className="p-header__icon"><FaGithub /></a>
           </div>
           <div className="is-flex p-header__menu">
-            <Link href="/">
+            <HyperLink>
               <a className="p-header__menuItem">
                 HOME
               </a>
-            </Link>
-            <Link as={linkResolver({type: 'profile'})} href={hrefResolver({type: 'profile'})}>
+            </HyperLink>
+            <HyperLink type='profile'>
               <a className="p-header__menuItem">
                 ABOUT
               </a>
-            </Link>
+            </HyperLink>
           </div>
         </div>
       </header>

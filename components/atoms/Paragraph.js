@@ -7,8 +7,11 @@ const Paragraph = styled.p`
   margin-bottom: 5px;
 `;
 
-export default ({children}) => (
-  <Paragraph>
-    {children}
-  </Paragraph>
-)
+export default ({text}) => {
+  if (text === '') return <br />;
+  return (
+    <Paragraph>
+      {text}
+    </Paragraph>
+  )
+}
