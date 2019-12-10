@@ -10,9 +10,9 @@ app.prepare()
 .then(() => {
   const server = express();
 
-  server.get('/posts/:id', (req, res) => {
-    const actualPage = '/post';
-    const queryParams = { id: req.params.id };
+  server.get('/posts/:uid', (req, res) => {
+    const actualPage = '/posts/[uid]';
+    const queryParams = { uid: req.params.uid };
     app.render(req, res, actualPage, queryParams);
   })
 
@@ -22,7 +22,7 @@ app.prepare()
 
   server.listen(port, (err) => {
     if (err) throw err
-    console.log('> Ready on http://localhost:3000')
+    console.log('> Ready on http://localhost:8080')
   })
 })
 .catch((ex) => {

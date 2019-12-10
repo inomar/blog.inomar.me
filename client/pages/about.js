@@ -19,7 +19,6 @@ export default class About extends Component {
 
   render() {
     const { doc } = this.props;
-    console.log(doc.data.about)
     return (
       <Layout>
         <section className="section">

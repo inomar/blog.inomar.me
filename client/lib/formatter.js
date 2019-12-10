@@ -1,14 +1,16 @@
 import { strDateTo } from '../modules/utility';
 
 export const postFormatter = (post) => {
-  const { id, type, tags, data, first_publication_date, last_publication_date } = post;
+  if (!post) return null;
+  const { id, uid, type, tags, data, first_publication_date, last_publication_date } = post;
   return {
     id,
+    uid,
     type,
+    tags,
     title: data.title[0].text,
     categories: tags,
     contents: data.body,
-    slug: id,
     publishedAt: strDateTo(first_publication_date),
     publishedDate: new Date(first_publication_date).getDate(),
     publishedMonth: new Date(first_publication_date).getMonth(),

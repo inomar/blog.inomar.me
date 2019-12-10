@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
+import Prismic from 'prismic-javascript';
 
 import Layout from '../components/Layout';
 import Article from '../components/Article';
 import Pagenation from '../components/Pagination';
 import Api from '../lib/api';
 import { postFormatter, categoryFormatter } from '../lib/formatter';
+import { apiEndpoint, accessToken } from '../lib/prismic-configuration';
+import Client from '../lib/prismicHelpers';
 
 export default class Index extends Component {
-  static async getInitialProps({ query }) {
-    const api = new Api();
-    const response = await api.getPosts();
-    if (response.status === 200) {
-      const { results } = response.data;
-      const posts = results.map(result => postFormatter(result));
-      return { posts };
-    }
+  static async getInitialProps({ req }) {
+    let posts = await Client(req).query(
+      Prismic.Predicates.at('document.type', 'blogpost')
+    )
+    posts = posts.results.map(post => postFormatter(post))
+    return {　posts }
   }
 
   render() {

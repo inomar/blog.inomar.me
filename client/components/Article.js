@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 
 import Tag from './Tag';
+import { linkResolver, hrefResolver } from '../lib/prismic-configuration';
 
 export default class Article extends Component{
   render() {
-    const { title, publishedAt, publishedYear, publishedMonth, id } = this.props.post;
-    const tags = []
+    const { post } = this.props;
+    const { title, publishedAt, uid, tags, type } = post;
     return (
       <div className="box content p-box">
         <h2 className="title is-6">
-          <Link as={`/posts/${id}`} href={`/post?id=${id}`} >
+          <Link as={linkResolver({ type, uid })} href={hrefResolver({ type, uid })}>
             <a className="p-boxTitle">{title}</a>
           </Link>
         </h2>
@@ -19,7 +20,7 @@ export default class Article extends Component{
         {
           tags && tags.map(tag => {
             return (
-              <Tag key={tag.slug} name={tag.name} color="blue" />
+              <Tag key={`${uid}-${tag}`} name={tag} color="blue" />
             )
           })
         }

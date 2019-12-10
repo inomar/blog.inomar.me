@@ -2,15 +2,24 @@ export const apiEndpoint = 'https://blog-inomar-me.cdn.prismic.io/api/v2';
 export const accessToken = process.env.ACCESS_TOKEN;
 
 export const linkResolver = (doc) => {
-  if (doc.type === 'profile') {
-    return `/about`;
+  console.log(doc)
+  switch(doc.type) {
+    case 'blogpost':
+      return `/posts/${doc.uid}`;
+    case 'profile':
+      return '/about';
+    default:
+      return '/'
   }
-  return '/';
 }
 
 export const hrefResolver = (doc) => {
-  if (doc.type === 'profile') {
-    return '/about';
-  }
-  return '/';
+  switch(doc.type) {
+    case 'blogpost':
+      return `/posts/[uid]`;
+    case 'profile':
+      return '/about';
+    default:
+      return '/';
+  };
 }
