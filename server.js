@@ -16,7 +16,9 @@ app.prepare()
     app.render(req, res, actualPage, queryParams);
   })
 
+
   server.get('*', (req, res) => {
+    console.log(req.params, '*')
     return handle(req, res)
   })
 

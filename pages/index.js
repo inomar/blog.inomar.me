@@ -2,22 +2,26 @@ import React, { Component } from 'react';
 import Prismic from 'prismic-javascript';
 
 import Article from '../components/molecules/Article';
-import Pagenation from '../components/Pagination';
+import Pagenation from '../components/molecules/Pagination';
 import { postFormatter } from '../lib/formatter';
 import Client from '../lib/prismicHelpers';
 import Layout from '../components/layouts/Layout'
 
 export default class Index extends Component {
-  static async getInitialProps({ req }) {
+  static async getInitialProps({ req, query }) {
+    const { page } = query;
     let posts = await Client(req).query(
-      Prismic.Predicates.at('document.type', 'blogpost')
+      Prismic.Predicates.at('document.type', 'blogpost'),
+      { pageSize : 10, page }
     )
+    const { next_page, prev_page } = posts; 
+    const currentPage = posts.page;
     posts = posts.results.map(post => postFormatter(post))
-    return {　posts }
+    return {　posts, next_page, prev_page, page: currentPage };
   }
 
   render() {
-    const { posts } = this.props;
+    const { posts, next_page, prev_page, page } = this.props;
     return (
       <Layout title="">
         <section className="section">
@@ -27,7 +31,7 @@ export default class Index extends Component {
           }
           </div>
         </section>
-
+        <Pagenation page={page} nextPage={next_page} prevPage={prev_page} />
       </Layout>
     )
   }
