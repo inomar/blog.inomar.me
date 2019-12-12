@@ -1,14 +1,30 @@
-import Document, { Head, Main, NextScript } from 'next/document';
+import { Head, Main, NextScript } from 'next/document';
+import NextDocument from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 import Ogp from '../lib/ogp';
-import Header from '../components/layouts/Header';
-import Footer from '../components/layouts/Footer';
 import '../styles/main.scss';
 
-export default class MyDocument extends Document {
+export default class Document extends NextDocument {
   static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
+    try {
+      ctx.renderPage = () => originalRenderPage({ enhanceApp: App => props => sheet.collectStyles(<App {...props} />) });
+
+      const initialProps = await NextDocument.getInitialProps(ctx);
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        )
+      }
+    } finally {
+      sheet.seal();
+    }
   }
 
   render() {

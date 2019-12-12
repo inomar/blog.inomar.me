@@ -3,11 +3,17 @@
     "next/babel"
   ],
   "plugins": [
-    ["prismjs", {
-      "languages": ["javascript", "css", "html"],
-      "plugins": ["line-numbers", "show-language"],
-      "theme": "okaidia",
-      "css": true
-    }]
+    [
+      "prismjs", {
+        "languages": ["javascript", "css", "html"],
+        "plugins": ["line-numbers", "show-language"],
+        "theme": "okaidia",
+        "css": true,
+      },
+    ],
+    [
+      "styled-components", 
+      { "ssr": true, "displayName": true, "preprocess": false },
+    ]
   ]
 }
