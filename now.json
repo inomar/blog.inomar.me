@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "alias": "blog.inomar.me",
+  "alias": "inomar.me",
   "builds": [
     { "src": "package.json", "use": "@now/next" }
   ],

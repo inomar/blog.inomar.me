@@ -136,25 +136,25 @@ a {
   }
   h1 {
     font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    margin: 2.5rem 0 0.8rem;
   }
   h2 {
     font-size: 1.5rem;
     border-bottom: 2px solid $third-color;
-    margin: 1.2rem 0 0.8rem;
+    margin: 2.5rem 0 0.8rem;
   }
   h3 {
     font-size: 1.2rem;
-    margin: 1.2rem 0 0.8rem;
+    margin: 2.5rem 0 0.8rem;
   }
   h4 {
     font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin: 2.5rem 0 0.8rem;
   }
   h5 {
     font-size: 1rem;
-    margin-bottom: 0.5rem;
+    margin: 2.5rem 0 0.8rem;
   }
 
 
@@ -167,11 +167,12 @@ a {
   li {
     line-height: 1.5;
     padding: 0.2em 0.5;
-    margin-bottom: 0.2rem;
+    margin-bottom: 1.0rem;
   }
 
   p {
-    margin-bottom: 0.3rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
   }
 
   br {
