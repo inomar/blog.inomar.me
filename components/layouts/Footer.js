@@ -13,7 +13,7 @@ export default class Footer extends Component {
               <div className="column is-half is-offset-one-quarter">
                 <div className="is-flex p-footer__profile">
                   <figure className="image is-128x128">
-                    <img className="is-rounded" src="/static/inomar_icon.png" alt="my profile image" />
+                    <img className="is-rounded" src="/static/inomar_icon_128x128.webp" alt="my profile image" />
                   </figure>
                   <div className="p-footer__profileText">
                     <p className="p-footer__profileName">いのまー</p>
