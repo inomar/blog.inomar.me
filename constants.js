@@ -6,7 +6,7 @@ export const TWITTER_ACCOUNT = '@macoto_chan'
 export const SITE_TITLE = {
   MAIN: '不定期更新症候群',
   SUB: '~ Web系エンジニアのブログです ~',
-  FULL: '不定期更新症候群 ~ webエンジニアのブログです ~'
+  FULL: '不定期更新症候群 ~ Webエンジニアのブログです ~'
 }
 export const SITE_DESCRIPTION = '不定期に更新するWeb系エンジニアのブログです。';
 export const SITE_URL = 'https://blog.inomar.me';
