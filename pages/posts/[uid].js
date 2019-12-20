@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Head from 'next/head';
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -12,6 +13,8 @@ import Tag from '../../components/atoms/Tag';
 import { postFormatter } from '../../lib/formatter';
 import Client from '../../lib/prismicHelpers';
 import HtmlSerializer from '../../lib/htmlSerializer';
+import Ogp from '../../lib/ogp';
+import { SITE_TITLE, SITE_URL } from '../../constants';
 
 export default class Post extends Component {
   static async getInitialProps({ req, query }) {
@@ -24,8 +27,8 @@ export default class Post extends Component {
   render() {
     const { post } = this.props;
     const { title, publishedAt, uid, tags, contents } = post;
-    const shareUrl = `https://blog.inomar.me/posts/${uid}`;
-    const headTitle = `${title} - 不定期更新症候群~フルスタックエンジニアを目指して~`;
+    const shareUrl = `${SITE_URL}/posts/${uid}`;
+    const headTitle = `${title} - ${SITE_TITLE.FULL}`;
     const disqusConfig = {
       url: shareUrl,
       identifier: uid,
@@ -33,6 +36,9 @@ export default class Post extends Component {
     };
     return(
       <Layout>
+        <Head>
+          <Ogp title={title} url={shareUrl} isTop={false} />
+        </Head>
         <section className="section">
           <div className="container">
             <div className="box p-post">
