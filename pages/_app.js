@@ -3,6 +3,9 @@ import Router from 'next/router';
 import withGA from 'next-ga';
 import NextNprogress from 'nextjs-progressbar';
 
+import Theme from '../lib/Theme';
+import GlobalStyle from '../lib/grobalStyles';
+
 class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
@@ -15,10 +18,11 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <>
+      <Theme>
+        <GlobalStyle />
         <NextNprogress color="#275EAF" />
         <Component {...pageProps} />
-      </>
+      </Theme>
     )
   }
 }
