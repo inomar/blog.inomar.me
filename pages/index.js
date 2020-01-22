@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Row, Col } from 'react-grid-system';
 import Prismic from 'prismic-javascript';
 
 import Article from '../components/molecules/Article';
@@ -24,14 +25,18 @@ export default class Index extends Component {
     const { posts, next_page, prev_page, page } = this.props;
     return (
       <Layout title="">
-        <section className="section">
-          <div className="container">
+        <Row>
           {
-            posts.length > 0 && posts.map(post => <Article key={post.id} post={post} />)
+            posts.length > 0 && posts.map(post => (
+              <Col sm={12} >
+                <Article key={post.id} post={post} />
+              </Col>
+            ))
           }
-          </div>
-        </section>
-        <Pagenation page={page} nextPage={next_page} prevPage={prev_page} />
+        </Row>
+        <Row>
+          <Pagenation page={page} nextPage={next_page} prevPage={prev_page} />
+        </Row>
       </Layout>
     )
   }

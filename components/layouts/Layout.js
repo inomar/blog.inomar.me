@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { Container } from 'react-grid-system';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -15,7 +16,9 @@ export default ({children, title, description }) => {
         <meta name="description" content={description} />
       </Head>
       <Header />
-        {children}
+        <Container>
+          { children }
+        </Container>
       <Footer />
     </>
   )
