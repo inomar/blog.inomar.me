@@ -1,10 +1,17 @@
 import styled from 'styled-components';
-import { typography, space, color } from 'styled-system'
+import { typography, space, color, shadow } from 'styled-system'
 
-export default styled.div`
+const Box = styled.div`
   ${typography}
   ${space}
   ${color}
+  ${shadow}
   border-radius: 6px;
-  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+  box-shadow: 0.7rem 0.7rem 1.6rem 0 rgba(39,94,175,.15);
 `;
+
+Box.defaultProps = {
+  p: 3,
+  bg: 'white',
+}
+export default Box;

@@ -11,8 +11,8 @@ export default class Article extends Component {
     const { post } = this.props;
     const { title, publishedRawAt, uid, tags, type } = post;
     return (
-      <Box p={3}>
-        <Title as="h2" color="primary" mb={2} fontSize={3}>
+      <Box mb={4}>
+        <Title as="h2" mb={3}>
           <HyperLink uid={uid} type={type} >
             <a>{title}</a>
           </HyperLink>

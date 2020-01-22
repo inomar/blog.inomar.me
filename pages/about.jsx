@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import Layout from '../components/layouts/Layout';
 import Prismic from 'prismic-javascript';
-import { RichText } from 'prismic-reactjs';
 import { apiEndpoint, accessToken } from '../lib/prismic-configuration';
 import HtmlSerializer from '../lib/htmlSerializer';
+import Box from '../components/atoms/Box';
 
 export default class About extends Component {
   static async getInitialProps({ req }) {
@@ -21,13 +21,9 @@ export default class About extends Component {
     const { doc } = this.props;
     return (
       <Layout title={'about'}>
-        <section className="section">
-          <div className="container">
-            <div className="box">
-              { HtmlSerializer(doc.data.about)}
-            </div>
-          </div>
-        </section>
+        <Box>
+          { HtmlSerializer(doc.data.about)}
+        </Box>
       </Layout>
     )
   }

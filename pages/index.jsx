@@ -25,15 +25,12 @@ export default class Index extends Component {
     const { posts, next_page, prev_page, page } = this.props;
     return (
       <Layout title="">
-        <Row>
+        
           {
             posts.length > 0 && posts.map(post => (
-              <Col sm={12} >
-                <Article key={post.id} post={post} />
-              </Col>
+                <Article key={post.id} post={post}/>
             ))
           }
-        </Row>
         <Row>
           <Pagenation page={page} nextPage={next_page} prevPage={prev_page} />
         </Row>

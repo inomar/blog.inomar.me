@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import { Container } from 'react-grid-system';
 
+import Container from '../atoms/Container';
 import Header from './Header';
 import Footer from './Footer';
 import '../../styles/main.scss';
@@ -16,7 +16,7 @@ export default ({children, title, description }) => {
         <meta name="description" content={description} />
       </Head>
       <Header />
-        <Container>
+        <Container py={4}>
           { children }
         </Container>
       <Footer />

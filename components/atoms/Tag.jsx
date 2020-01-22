@@ -8,7 +8,7 @@ const getColor = ({ theme }) => `
 
 const tagStyle = ({ theme }) => `
   align-items: center;
-  border-radius: 4px;
+  border-radius: 6px;
   display: inline-flex;
   height: 2em;
   justify-content: center;
@@ -17,9 +17,10 @@ const tagStyle = ({ theme }) => `
 `;
 
 const Content = styled.div`
-  ${typography};
-  ${getColor};
-  ${space};
+  ${typography}
+  ${getColor}
+  ${space}
+  border-radius: 6px;
   box-sizing: border-box;
   clear: both;
   position: relative;
@@ -34,19 +35,19 @@ const TagMain = styled.div`
 `;
 
 const TagHead = styled.span`
-  ${color};
-  ${space};
-  ${typography};
-  ${tagStyle};
+  ${color}
+  ${space}
+  ${typography}
+  ${tagStyle}
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 `;
 
 const TagBody = styled.span`
-  ${color};
-  ${space};
-  ${typography};
-  ${tagStyle};
+  ${color}
+  ${space}
+  ${typography}
+  ${tagStyle}
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 `;

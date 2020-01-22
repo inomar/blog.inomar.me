@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { typography, color, space } from 'styled-system';
 
-
-
-export default styled.h1`
+const Title = styled.h1`
   ${typography}
   ${color}
   ${space}
 `;
+
+Title.defaultProps = {
+  fontSize: 3,
+  color: 'primary',
+};
+
+export default Title;

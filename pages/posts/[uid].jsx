@@ -9,6 +9,7 @@ import {
 import { DiscussionEmbed } from 'disqus-react';
 
 import Layout from '../../components/layouts/Layout';
+import Box from '../../components/atoms/Box';
 import Tag from '../../components/atoms/Tag';
 import { postFormatter } from '../../lib/formatter';
 import Client from '../../lib/prismicHelpers';
@@ -39,9 +40,9 @@ export default class Post extends Component {
         <Head>
           <Ogp title={title} url={shareUrl} isTop={false} />
         </Head>
-        <section className="section">
+        <Box>
           <div className="container">
-            <div className="box p-post">
+            <div className="p-post">
               <h1 className="p-post__title title is-3">{title}</h1>
               <p className="p-post__date subtitle is-7">{publishedAt}</p>
               <div className="field is-grouped is-grouped-multiline">
@@ -70,7 +71,7 @@ export default class Post extends Component {
               <DiscussionEmbed shortname={"bu-ding-qi-geng-xin-zheng-hou-qun"} config={disqusConfig} />
             </div>
           </div>
-        </section>
+        </Box>
       </Layout>
     )
   }
