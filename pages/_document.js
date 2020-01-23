@@ -34,7 +34,7 @@ export default class Document extends NextDocument {
           <meta charSet="utf-8" />
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-          <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico"></link>
+          <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
           <Ogp />
         </Head>
         <body>

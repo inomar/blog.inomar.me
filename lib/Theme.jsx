@@ -9,6 +9,7 @@ const theme =  {
     tertiary: '#74A9E8',
     quaternary: '#7489A4;',
     white: '#FFF',
+    surface: '#FAFAFA',
   },
   fontSizes: [12, 14, 16, 20, 24, 32],
 }

@@ -11,7 +11,7 @@ const HeadWrapper = styled.div`
 `;
 
 export default () => (
-  <header className="p-wrapper__header">
+  <header>
     <Container>
       <HeadWrapper>
         <Title as="div" mb={2} fontWeight="bold" letterSpacing="0.5rem">
