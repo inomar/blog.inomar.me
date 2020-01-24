@@ -18,9 +18,9 @@ export default () => (
     <nav>
       {
         menu && menu.map(item => (
-          <LinkWrapper mx={2}>
+          <LinkWrapper mx={2} key={item.title}>
             <HyperLink type={item.type} key={item.title}>
-              {item.title}
+              <a>{item.title}</a>
             </HyperLink>
           </LinkWrapper>
         ))

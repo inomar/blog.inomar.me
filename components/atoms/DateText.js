@@ -16,9 +16,9 @@ const Time = styled.time`
 `;
 
 Time.defaultProps = {
-  fontSize: 0,
+  fontSize: 1,
 }
 
-export default ({ date, size = 0 }) => (
+export default ({ date, size = 1 }) => (
   <Time dateTime={date} fontSize={size}>{strDateTo(date)}</Time>
 );

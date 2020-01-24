@@ -8,10 +8,9 @@ const Container = styled.div`
 
 Container.defaultProps = {
   maxWidth: ['40em', '52em', '64em'],
-  width: '100%',
   mx: 'auto',
   my: 0,
-  px: [3, 2, 2, 2],
+  px: [2, 2, 2, 3],
 };
 
 export default Container;
