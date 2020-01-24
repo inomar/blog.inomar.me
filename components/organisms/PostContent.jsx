@@ -8,7 +8,7 @@ import HtmlSerializer from '../../lib/htmlSerializer';
 
 export default ({ title, publishedRawAt, tags, uid, contents }) => (
   <>
-    <Title fontWeight="bold" fontSize={4} mb={4}>{title}</Title>
+    <Title fontSize={[3,4,5]} mb={4}>{title}</Title>
     <DateText date={publishedRawAt} size={1} />
     <SpaceWrapper mt={2}>
       <Tags tags={tags} id={uid} />
