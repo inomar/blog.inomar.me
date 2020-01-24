@@ -15,3 +15,14 @@ export const PROFILE = {
   POSITION: 'Webデベロッパー',
   DESCRIPTION: 'どこかの技術に特化するより、まんべんなくやるのが好きです。将来は農業をやりたいので、植物と話ができるように訓練しています。夢は義体化と電脳化！',
 }
+
+export const menu = [
+  {
+    title: 'HOME',
+    type: null,
+  },
+  {
+    title: 'ABOUT',
+    type: 'profile',
+  },
+];
