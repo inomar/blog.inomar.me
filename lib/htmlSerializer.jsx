@@ -1,13 +1,13 @@
 import Paragraph from '../components/atoms/Paragraph';
-import LeadText from '../components/atoms/LeadText';
+import Title from '../components/atoms/Title';
 import CodeBlock from '../components/atoms/CodeBlock';
-import List from '../components/atoms/List';
 
 export default (contents) => (
   contents.map((content, index) => {
     const { text, type, spans } = content;
     if (/^heading[123456]$/.test(type)) {
-      return <LeadText size={2} text={text} key={index} />
+      const size = type.replace(/heading/g, '') || 2;
+      return <Title as={`h${size}`} fontSize={[3,3,4]}key={index}>{ text }</Title>
     }
     switch(type) {
       case 'paragraph':
@@ -15,7 +15,7 @@ export default (contents) => (
       case 'preformatted':
         return <CodeBlock text={text} language={'none'} key={index} />;
       case 'list-item':
-        return <List text={text} key={index} />
+        return <li key={index}>{text}</li>
       default:
         return <div key={index}>{text}</div>;
     }

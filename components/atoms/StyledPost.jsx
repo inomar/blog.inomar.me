@@ -9,7 +9,6 @@ const StyledPost = styled.div`
     margin: 2.5rem 0 0.8rem;
   }
   h2 {
-    font-size: 1.5rem;
     border-bottom: 2px solid ${({ theme }) => theme.colors.primary };
     padding-bottom: 0.5rem;
     margin: 2.5rem 0 0.8rem;

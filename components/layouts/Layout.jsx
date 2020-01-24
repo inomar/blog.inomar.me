@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Container from '../atoms/Container';
 import Header from './Header';
 import Footer from './Footer';
-import '../../styles/main.scss';
 
 import { SITE_TITLE } from '../../constants';
 

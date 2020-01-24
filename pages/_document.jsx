@@ -3,7 +3,6 @@ import NextDocument from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 import Ogp from '../lib/ogp';
-import '../styles/main.scss';
 
 export default class Document extends NextDocument {
   static async getInitialProps(ctx) {
