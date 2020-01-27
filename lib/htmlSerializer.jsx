@@ -2,6 +2,7 @@ import Paragraph from '../components/atoms/Paragraph';
 import Title from '../components/atoms/Title';
 import CodeBlock from '../components/atoms/CodeBlock';
 import Img from '../components/atoms/Img';
+import LazyLoadImage from '../components/atoms/LazyLoadImage';
 
 export default (contents) => (
   contents.map((content, index) => {
@@ -12,13 +13,13 @@ export default (contents) => (
     }
     switch(type) {
       case 'paragraph':
-        return <Paragraph text={text} spans={spans} key={index} />
+        return <Paragraph text={text} spans={spans} key={index} />;
       case 'preformatted':
         return <CodeBlock text={text} language={'none'} key={index} />;
       case 'list-item':
-        return <li key={index}>{text}</li>
+        return <li key={index}>{text}</li>;
       case 'image':
-        return <Img key={index} src={url} alt={alt} />
+        return <LazyLoadImage key={index}>{ onLoad => ( <Img src={url} alt={alt} onLoad={onLoad} /> )}</LazyLoadImage>;
       default:
         return <div key={index}>{text}</div>;
     }
