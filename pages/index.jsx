@@ -13,7 +13,10 @@ export default class Index extends Component {
     const { page } = query;
     let posts = await Client(req).query(
       Prismic.Predicates.at('document.type', 'blogpost'),
-      { pageSize : 10, page }
+      {
+        pageSize : 10, page,
+        orderings: '[document.first_publication_date desc]',
+      }
     )
     const { next_page, prev_page } = posts; 
     const currentPage = posts.page;
