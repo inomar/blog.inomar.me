@@ -11,7 +11,6 @@ const Index = props => {
   const { posts, next_page, prev_page, page } = props;
     return (
       <Layout title="">
-        
           {
             posts.length > 0 && posts.map(post => (
                 <Article key={post.id} post={post}/>
@@ -28,7 +27,7 @@ Index.getInitialProps = ( async ({ req, query }) => {
   const { page } = query;
   let posts = await Client(req).query(
     Prismic.Predicates.at('document.type', 'blogpost'),
-    { pageSize : 10, page }
+    { pageSize : 10, page, orderings : '[document.first_publication_date desc]' }
   )
   const { next_page, prev_page } = posts; 
   const currentPage = posts.page;
