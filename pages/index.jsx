@@ -9,18 +9,18 @@ import Layout from '../components/layouts/Layout';
 
 const Index = props => {
   const { posts, next_page, prev_page, page } = props;
-    return (
-      <Layout title="">
-          {
-            posts.length > 0 && posts.map(post => (
-                <Article key={post.id} post={post}/>
-            ))
-          }
-        <Row>
-          <Pagenation page={page} nextPage={next_page} prevPage={prev_page} />
-        </Row>
-      </Layout>
-    )
+  return (
+    <Layout title="">
+        {
+          posts.length > 0 && posts.map(post => (
+              <Article key={post.id} post={post}/>
+          ))
+        }
+      <Row>
+        <Pagenation page={page} nextPage={next_page} prevPage={prev_page} />
+      </Row>
+    </Layout>
+  )
 }
 
 Index.getInitialProps = ( async ({ req, query }) => {
