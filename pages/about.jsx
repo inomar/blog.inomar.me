@@ -15,10 +15,10 @@ const About = ({ doc }) => {
 }
 
 
-About.getInitialProps = (async ({ req }) => {
+export const getServerSideProps = async ({ req }) => {
   const API = await Prismic.getApi(apiEndpoint, { req, accessToken });
   const doc = await API.getSingle('profile');
-  return { doc };
-});
+  return { props: { doc } };
+};
 
 export default About;

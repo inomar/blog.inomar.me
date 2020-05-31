@@ -34,11 +34,11 @@ const Post = ({ post }) => {
 }
 
 
-Post.getInitialProps = (async ({ req, query }) => {
+export const getServerSideProps = async ({ req, query }) => {
   const { uid } = query;
   let post = await Client(req).getByUID('blogpost', uid);
   post = postFormatter(post);
-  return {　post };
-});
+  return {　props: { post } };
+};
 
 export default Post;
