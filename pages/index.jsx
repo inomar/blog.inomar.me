@@ -23,7 +23,7 @@ const Index = props => {
   )
 }
 
-Index.getInitialProps = ( async ({ req, query }) => {
+export const getServerSideProps = async ({ req, query }) => {
   const { page } = query;
   let posts = await Client(req).query(
     Prismic.Predicates.at('document.type', 'blogpost'),
@@ -32,7 +32,7 @@ Index.getInitialProps = ( async ({ req, query }) => {
   const { next_page, prev_page } = posts; 
   const currentPage = posts.page;
   posts = posts.results.map(post => postFormatter(post))
-  return {　posts, next_page, prev_page, page: currentPage };
-});
+  return {　props: { posts, next_page, prev_page, page: currentPage } };
+};
 
 export default Index;
